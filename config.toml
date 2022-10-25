@@ -1,4 +1,4 @@
-baseURL = "taufik-achmad.github.io"
+baseURL = "https://taufik-achmad.github.io/"
 languageCode = "en"
 theme = "hugo-apero"
 title = "Taufik Achmad"
