@@ -1,7 +1,7 @@
 ---
 ## Configure header of page
 text_align_right: false
-show_title_as_headline: true
+show_title_as_headline: false
 headline: |
   Hi, my name is Taufik Achmad. Nice to meet you.
 ---
