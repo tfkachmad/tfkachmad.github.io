@@ -1,7 +1,9 @@
 ---
 title: Blog
 description: |
-  Currently collecting thoughts on what to write on this page 💭
+  This page is currently empty 💭
+
+  But don't be sad, here's some cookie 🍪🍪🍪
 author: ""
 show_post_thumbnail: true
 thumbnail_left: true # for list-sidebar only
