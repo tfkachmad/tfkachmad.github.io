@@ -13,10 +13,10 @@ categories:
 # layout options: single or single-sidebar
 layout: single
 links:
-- icon: github
+- icon: r-project
   icon_pack: fab
   name: Full project
-  url: https://github.com/apreshill/bakeoff
+  url: https://rpubs.com/taufik-achmad/cyclistic
 ---
 
 ![bike](./img/bike_clique_studio.jpg)\
