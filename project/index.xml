@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Projects on Taufik Achmad</title>
-    <link>https://hugo-apero.github.io/apero/project/</link>
-    <description>Recent content in Projects on Taufik Achmad</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 31 Oct 2022 10:54:10 +0700</lastBuildDate><atom:link href="https://hugo-apero.github.io/apero/project/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cyclistic - Analyzing User Behavior</title>
-      <link>https://hugo-apero.github.io/apero/project/cyclistic/</link>
-      <pubDate>Mon, 31 Oct 2022 10:54:10 +0700</pubDate>
-      
-      <guid>https://hugo-apero.github.io/apero/project/cyclistic/</guid>
-      <description>📷 Clique Studio/Unsplash
-Introduction     This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not like other data projects I have ever solved before. The challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Taufik Achmad</title><link>https://taufik-achmad.github.io/project/</link><description>Recent content in Projects on Taufik Achmad</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 31 Oct 2022 10:54:10 +0700</lastBuildDate><atom:link href="https://taufik-achmad.github.io/project/index.xml" rel="self" type="application/rss+xml"/><item><title>Cyclistic - Analyzing User Behavior</title><link>https://taufik-achmad.github.io/project/cyclistic/</link><pubDate>Mon, 31 Oct 2022 10:54:10 +0700</pubDate><guid>https://taufik-achmad.github.io/project/cyclistic/</guid><description>📷 Clique Studio/Unsplash
+Introduction This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not like other data projects I have ever solved before. The challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself.</description></item></channel></rss>
