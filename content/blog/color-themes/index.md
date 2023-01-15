@@ -10,7 +10,7 @@ tags:
 categories:
   - Theme Features
 # layout options: single, single-sidebar
-layout: single
+layout: single-sidebar
 ---
 
 You can totally customize your site's theme colors within minutes of

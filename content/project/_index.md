@@ -10,12 +10,10 @@ layout: list-grid # list, list-sidebar, list-grid
 
 # for list-sidebar layout
 sidebar:
-  title: A Sidebar for Your Projects
+  title: Collections of data projects
   description: |
-    Projects can be anything!
-    Check out the _index.md file in the /project folder
-    to edit this content.
-  author: "The R Markdown Team @RStudio"
+    Some projects I have worked on to showcase skills in data analytics.
+  author: "Taufik Achmad"
   text_link_label: ""
   text_link_url: ""
   show_sidebar_adunit: false # show ad container
@@ -33,4 +31,4 @@ cascade:
     show_sidebar_adunit: true # show ad container
 ---
 
-** No content for the project index. This file provides front matter for the blog including the layout and boolean options. **
+**No content for the project index. This file provides front matter for the blog including the layout and boolean options.**
