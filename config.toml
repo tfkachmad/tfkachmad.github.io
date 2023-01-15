@@ -1,4 +1,4 @@
-baseURL = "https://taufik-achmad.github.io/"
+baseURL = "https://tfkachmad.github.io/"
 theme = "hugo-apero"
 languageCode = "en"
 title = "Taufik Achmad"
@@ -20,8 +20,8 @@ enableEmoji = true
     unsafe = true  # Enable user to embed HTML snippets in Markdown content.
     hardwraps = false
   [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 2
+    startLevel = 1
+    endLevel = 4
     ordered = false
   [markup.highlight]
     # one of: https://xyproto.github.io/splash/docs/
@@ -30,10 +30,10 @@ enableEmoji = true
 [params]
   orgName = "Taufik Achmad"
   orgLocal = ""
-  description = "A modern, beautiful, and easily configurable blog theme for Hugo."
+  description = ""
   favicon = "/img/favicon.ico"
-  logo = "/img/ta-apero.png"
-  mainSections = ["blog", "project", "talk"]
+  logo = "/img/ta-logo-apero.png"
+  mainSections = ["blog", "project"]
   navallcaps = true
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -41,14 +41,14 @@ enableEmoji = true
   socialInFooter = true
   # Default image for social sharing and search engines.
   # Place image file in `static` folder and specify image name here.
-  sharing_image = "/img/papillons.jpg"
+  sharing_image = ""
   # Twitter username (without @). Used when a visitor shares your site on Twitter.
-  twitter = "apreshill"
+  twitter = ""
 
   # use a built-in color theme
   # one of: forest / grayscale / peach / plum /
   #         poppy / sky / violet / water
-  theme = "sky"
+  theme = "grayscale"
 
   # or, leave theme empty & make your own palette
   # see docs at https://hugo-apero.netlify.app/blog/color-themes/
@@ -61,16 +61,16 @@ enableEmoji = true
   # serif options: Fraunces / EB Garamond / Bitter
   # sans-serif options: Commissioner / Atkinson Hyperlegible / Metropolis
   # if you import your own fonts, name them here too
-  customtextFontFamily = ""
-  customheadingFontFamily = "Bitter"
+  customtextFontFamily = "Lato"
+  customheadingFontFamily = "Merriweather"
   # alternatively, leave empty and select basic font options: sans-serif or serif
   # for more http://tachyons.io/docs/typography/font-family/
-  textFontFamily = "sans-serif"
-  headingFontFamily = "sans-serif"
+  textFontFamily = ""
+  headingFontFamily = ""
 
   # Configuration of https://utteranc.es/ for comments
   [params.utterances]
-    use_utterances = true
+    use_utterances = false
     repo_name = "apreshill/apero"
     issue_term = "pathname" # url, pathname, or title
     theme = "boxy-light"
@@ -88,7 +88,7 @@ enableEmoji = true
   [[params.social]]
       icon      = "github" # icon name without the 'fa-'
       icon_pack = "fab"
-      url       = "https://github.com/taufik-achmad/"
+      url       = "https://github.com/tfkachmad"
   [[params.social]]
       icon      = "linkedin" # icon name without the 'fa-'
       icon_pack = "fab"
@@ -106,31 +106,16 @@ enableEmoji = true
     title = "About"
     url = "/about/"
     weight = 1
-  [[menu.header]]
-    name = "Blog"
-    title = "Blog"
-    url = "/blog/"
-    weight = 2
+  # [[menu.header]]
+  #   name = "Blog"
+  #   title = "Blog"
+  #   url = "/blog/"
+  #   weight = 2
   [[menu.header]]
     name = "Projects"
     title = "Project Portfolio"
     url = "/project/"
-    weight = 3
-  # [[menu.header]]
-  #   name = "Talks"
-  #   title = "Talks"
-  #   url = "/talk/"
-  #   weight = 4
-  # [[menu.header]]
-  #   name = "A collection"
-  #   title = "A collection"
-  #   url = "/collection/"
-  #   weight = 5
-  # [[menu.header]]
-  #   name = "Elements"
-  #   title = "Element Page"
-  #   url = "/elements/"
-  #   weight = 6
+    weight = 2
 
   # Configure footer
   # [[menu.footer]]
