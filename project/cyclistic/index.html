@@ -1,131 +1,723 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.109.0"><title>Cyclistic - Analyzing User Behavior | Taufik Achmad</title><meta name=description content="Understanding user behavior to create data-driven marketing campaigns."><meta property="og:site_name" content="Taufik Achmad"><meta property="og:title" content="Cyclistic - Analyzing User Behavior | Taufik Achmad"><meta property="og:description" content="Understanding user behavior to create data-driven marketing campaigns."><meta property="og:type" content="page"><meta property="og:url" content="https://tfkachmad.github.io/project/cyclistic/"><meta property="og:locale" content="en"><meta property="og:image" content="https://tfkachmad.github.io/project/cyclistic/featured.jpg"><meta property="twitter:card" content="summary_large_image"><meta name=twitter:image content="https://tfkachmad.github.io/project/cyclistic/featured.jpg"><meta itemprop=name content="Cyclistic - Analyzing User Behavior"><meta itemprop=description content="📷 Clique Studio/Unsplash
-Introduction This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not the challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself."><meta itemprop=datePublished content="2022-10-31T10:54:10+07:00"><meta itemprop=dateModified content="2022-10-31T10:54:10+07:00"><meta itemprop=wordCount content="1673"><meta itemprop=image content="https://tfkachmad.github.io/project/cyclistic/featured.jpg"><meta itemprop=keywords content="R,"><!--[if IE]><script src=//html5shiv.googlecode.com/svn/trunk/html5.js></script><![endif]--><link rel="shortcut icon" href=/img/favicon.ico type=image/x-icon><link rel=icon href=/img/favicon.ico type=image/x-icon><link rel=stylesheet href=/style.main.min.ccfd0ae7ccfe47ae15990e5256e593142dc5452efbebc882a1ba95ce6641e10f.css integrity="sha256-zP0K58z+R64VmQ5SVuWTFC3FRS7768iCobqVzmZB4Q8=" media=screen><script src=/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js type=text/javascript></script>
-<script src=/main.min.e9804d780214335f4ea268c5f83a1604cab80515817e245a4741b4a4c55ded3e.js type=text/javascript></script></head><body><div class="grid-container single-sidebar"><header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role=banner><nav class="site-nav db dt-l w-100" role=navigation><a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href=https://tfkachmad.github.io/ title=Home><img src=/img/ta-logo-apero.png class="dib db-l h2 w-auto" alt="Taufik Achmad"></a><div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked"><a class="link f6 f5-l dib pv1 ph2" href=/about/ title=About>About</a>
-<a class="link f6 f5-l dib pv1 ph2 active" href=/project/ title="Project Portfolio">Projects</a><div class="dib v-mid"><div class=social-icon-links aria-hidden=true><a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=mailto:taufik.achmad.septian@gmail.com title=envelope-square><i class="fas fa-envelope-square fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://github.com/tfkachmad title=github target=_blank rel=noopener><i class="fab fa-github fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://www.linkedin.com/in/taufik-achmad/ title=linkedin target=_blank rel=noopener><i class="fab fa-linkedin fa-lg fa-fw"></i></a></div></div></div></nav></header><main class="page-main pa4" role=main><section class="page-content mw7 center"><article class="post-content pa0 pr3-l"><header class=post-header><h1 class="f1 lh-solid measure-narrow mb3 fw4">Cyclistic - Analyzing User Behavior</h1><h4 class="f4 mt0 mb4 lh-title measure">Understanding user behavior to create data-driven marketing campaigns.</h4><p class="f6 measure lh-copy mv1">By Taufik Achmad in <a href=https://tfkachmad.github.io/categories/project>Project</a></p><p class="f7 db mv0 ttu">October 31, 2022</p><div class="ph0 pt5"><a class="btn-links mr2 ba dib" href=https://rpubs.com/taufik-achmad/cyclistic target=_blank rel=noopener><i class="fab fa-r-project fa-lg fa-fw mr2"></i>Full project</a></div></header><section class="post-body pt5 pb4"><p><img src=./img/bike_clique_studio.jpg alt=bike><br>📷 Clique Studio/Unsplash</p><h2 id=introduction>Introduction
-<a href=#introduction><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>This project is my attempt to solve the first case study from the
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" />
+<title>Cyclistic - Analyzing User Behavior | Taufik Achmad</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Understanding user behavior to create data-driven marketing campaigns.">
+
+
+<meta property="og:site_name" content="Taufik Achmad">
+<meta property="og:title" content="Cyclistic - Analyzing User Behavior | Taufik Achmad">
+<meta property="og:description" content="Understanding user behavior to create data-driven marketing campaigns." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://hugo-apero.github.io/apero/project/cyclistic/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://hugo-apero.github.io/apero/project/cyclistic/featured.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://hugo-apero.github.io/apero/project/cyclistic/featured.jpg" >
+    
+    
+  <meta itemprop="name" content="Cyclistic - Analyzing User Behavior">
+<meta itemprop="description" content="📷 Clique Studio/Unsplash
+Introduction     This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not the challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself.">
+<meta itemprop="datePublished" content="2022-10-31T10:54:10+07:00" />
+<meta itemprop="dateModified" content="2022-10-31T10:54:10+07:00" />
+<meta itemprop="wordCount" content="1673">
+<meta itemprop="image" content="https://hugo-apero.github.io/apero/project/cyclistic/featured.jpg">
+
+
+
+<meta itemprop="keywords" content="R," />
+
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/apero/style.main.min.7d7d3faed36aa7200a51cb495158153324c43125dd6a31916dcc93fc53c0fdf6.css" integrity="sha256-fX0/rtNqpyAKUctJUVgVMyTEMSXdajGRbcyT/FPA/fY=" media="screen">
+  
+  
+  <script src="/apero/panelset.min.41f62c42d5f25dd80e81136866f4f1baa1bc17669edfd002e75c0e107953789b.js" type="text/javascript"></script>
+  
+  
+  <script src="/apero/main.min.07ec8e08cbb63db3a2cf7d4a7df6f7be00c715f13b64d8df6a2c48441ba8b14b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single-sidebar">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://hugo-apero.github.io/apero/" title="Home">
+      <img src="/apero/img/ta-logo-apero.png" class="dib db-l h2 w-auto" alt="Taufik Achmad">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/apero/about/" title="About">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/apero/project/" title="Project Portfolio">Projects</a>
+      
+      
+      <div class="dib v-mid">
+        <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="mailto:taufik.achmad.septian@gmail.com" title="envelope-square" >
+      <i class="fas fa-envelope-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/tfkachmad" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/taufik-achmad/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+      </div>
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 pr3-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Cyclistic - Analyzing User Behavior</h1>
+        <h4 class="f4 mt0 mb4 lh-title measure">Understanding user behavior to create data-driven marketing campaigns.</h4>
+        <p class="f6 measure lh-copy mv1">By Taufik Achmad in <a href="https://hugo-apero.github.io/apero/categories/project">Project</a> </p>
+        <p class="f7 db mv0 ttu">October 31, 2022</p>
+        
+      
+      <div class="ph0 pt5">
+        
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+      
+  <a class="btn-links mr2 ba dib" href="https://rpubs.com/taufik-achmad/cyclistic" target="_blank" rel="noopener"><i class="fab fa-r-project fa-lg fa-fw mr2"></i>Full project</a>
+
+
+      </div>
+      
+      
+      </header>
+      <section class="post-body pt5 pb4">
+        <p><img src="./img/bike_clique_studio.jpg" alt="bike"><br>
+📷 Clique Studio/Unsplash</p>
+
+
+
+
+<h2 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>This project is my attempt to solve the first case study from the
 <strong>Google Data Analytics Professional Certificate</strong> <strong>Capstone Projects</strong>
 on <strong>Coursera</strong> that you can access
-<a href="https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics" target=_blank rel=noopener>here</a>.
+
+<a href="https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics" target="_blank" rel="noopener">here</a>.
 I really enjoy working on this project because not the challenge on this
 project is ranging from the size of the data provided, to the working on
-how to create a meaningful analysis to solve the main problem itself.</p><p>This project will be about <strong>analyzing user behavior</strong> on how they use
+how to create a meaningful analysis to solve the main problem itself.</p>
+<p>This project will be about <strong>analyzing user behavior</strong> on how they use
 the service of a fictional bike-sharing company based in Chicago, called
-<strong>Cyclistic</strong>.</p><p>If you have any question regarding this project, don’t hesitate to
-contact me through email
-<a href=mailto:taufik.achmad.septian@gmail.com>here</a>,
+<strong>Cyclistic</strong>.</p>
+<p>If you have any question regarding this project, don’t hesitate to
+contact me through email 
+<a href="mailto:taufik.achmad.septian@gmail.com">here</a>,
 or send me a message on LinkedIn
-<a href=https://www.linkedin.com/in/taufik-achmad/ target=_blank rel=noopener>here</a>.</p><h2 id=background>Background
-<a href=#background><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p><strong>Cyclistic</strong> is a bike-sharing company that launched back in 2016.
+
+<a href="https://www.linkedin.com/in/taufik-achmad/" target="_blank" rel="noopener">here</a>.</p>
+
+
+
+
+<h2 id="background">Background
+  <a href="#background"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p><strong>Cyclistic</strong> is a bike-sharing company that launched back in 2016.
 Since then, the program has grown to a fleet of 5,824 bicycles that are
 geo-tracked and locked into a network of 692 stations across Chicago.
 The bikes can be unlocked from one station and returned to any other
-station in the system at anytime.</p><p>Until now, Cyclistic’s marketing strategy relied on building general
+station in the system at anytime.</p>
+<p>Until now, Cyclistic’s marketing strategy relied on building general
 awareness and appealing to broad consumer segments. One approach that
 helped make these things possible was the flexibility of its pricing
 plans: single-ride passes, full-day passes, and annual memberships.
 <strong>Customers who purchase single-ride or full-day passes are referred to
 as one-time users</strong>. <strong>Customers who purchase annual memberships are
-Cyclistic members or subscriber users</strong>.</p><h2 id=business-problem>Business Problem
-<a href=#business-problem><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>Cyclistic’s finance analysts have concluded that annual members are much
+Cyclistic members or subscriber users</strong>.</p>
+
+
+
+
+<h2 id="business-problem">Business Problem
+  <a href="#business-problem"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Cyclistic’s finance analysts have concluded that annual members are much
 more profitable than casual riders. Although the pricing flexibility
 helps Cyclistic attract more customers, they believe that maximizing the
 number of annual members will be key to future growth. Rather than
 creating a marketing campaign that targets all-new customers, they
 believe there is a very good chance to convert casual riders into
 members. They notes that casual riders are already aware of the
-Cyclistic program and have chosen Cyclistic for their mobility needs.</p><p><strong>They have set a clear goal:</strong></p><blockquote><p><strong>Design marketing strategies aimed at converting casual riders into
-annual members.</strong></p></blockquote><p>In order to do that, however, the marketing analyst team needs to better
-understand several things:</p><ul><li><p><strong>How do annual members and casual riders differ?</strong></p></li><li><p><strong>Why casual riders would buy a membership?</strong></p></li><li><p><strong>How digital media could affect their marketing tactics?</strong></p></li></ul><p>The team is interested in analyzing the Cyclistic historical bike trip
+Cyclistic program and have chosen Cyclistic for their mobility needs.</p>
+<p><strong>They have set a clear goal:</strong></p>
+<blockquote>
+<p><strong>Design marketing strategies aimed at converting casual riders into
+annual members.</strong></p>
+</blockquote>
+<p>In order to do that, however, the marketing analyst team needs to better
+understand several things:</p>
+<ul>
+<li>
+<p><strong>How do annual members and casual riders differ?</strong></p>
+</li>
+<li>
+<p><strong>Why casual riders would buy a membership?</strong></p>
+</li>
+<li>
+<p><strong>How digital media could affect their marketing tactics?</strong></p>
+</li>
+</ul>
+<p>The team is interested in analyzing the Cyclistic historical bike trip
 data to identify trends. And for this project, I’m going to work to
-answer the first question, which is:</p><blockquote><p><strong>How do annual members and casual riders differ?</strong></p></blockquote><h2 id=analysis>Analysis
-<a href=#analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>The data to support the analysis is coming from a real bike-sharing
+answer the first question, which is:</p>
+<blockquote>
+<p><strong>How do annual members and casual riders differ?</strong></p>
+</blockquote>
+
+
+
+
+<h2 id="analysis">Analysis
+  <a href="#analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>The data to support the analysis is coming from a real bike-sharing
 company that is also based in Chicago called <strong>Divvy</strong>. The data have
 been made available to be accessed publicly through this
-<a href=https://divvy-tripdata.s3.amazonaws.com/index.html target=_blank rel=noopener>link</a>.</p><p>The data is organized by monthly trip data in *.csv format that is
+
+<a href="https://divvy-tripdata.s3.amazonaws.com/index.html" target="_blank" rel="noopener">link</a>.</p>
+<p>The data is organized by monthly trip data in *.csv format that is
 compressed in a *.zip format for each month. Meaning, each *.csv file
 contains the historical trip data for a specific month. For this
 analysis, we’re going to need the historical trip data from the past 12
 months, which means the trip data from <strong>September 2021</strong> to <strong>August
-2022</strong> will be used.</p><h3 id=trips-per-user-type>Trips per User Type
-<a href=#trips-per-user-type><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Let’s look at the number of trips taken by each user type for the past
+2022</strong> will be used.</p>
+
+
+
+
+<h3 id="trips-per-user-type">Trips per User Type
+  <a href="#trips-per-user-type"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Let’s look at the number of trips taken by each user type for the past
 12 months. Throughout this analysis, the annual members will be called
 subscriber users and casual riders will be called one-time users. This
-is done to help understanding the result better.</p><table><thead><tr><th style=text-align:left>user_type</th><th style=text-align:right>rides_num</th><th style=text-align:right>percentage</th></tr></thead><tbody><tr><td style=text-align:left>Subscriber</td><td style=text-align:right>3414493</td><td style=text-align:right>58.04%</td></tr><tr><td style=text-align:left>One-time user</td><td style=text-align:right>2468415</td><td style=text-align:right>41.96%</td></tr></tbody></table><p>We can see that <strong>subscriber users ride more bike for the past 12-month,
-which are 58% or 17% higher than the one-time users</strong>.</p><h3 id=trips-per-months>Trips per Months
-<a href=#trips-per-months><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Let’s add some level of detail to show how the number of trips differ
-per month.</p><p><img src=img/monthly-trips-stacked-bar-1.png alt></p><p>Here, we can see that the number of rides rose from January to July, and
+is done to help understanding the result better.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">user_type</th>
+<th style="text-align:right">rides_num</th>
+<th style="text-align:right">percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Subscriber</td>
+<td style="text-align:right">3414493</td>
+<td style="text-align:right">58.04%</td>
+</tr>
+<tr>
+<td style="text-align:left">One-time user</td>
+<td style="text-align:right">2468415</td>
+<td style="text-align:right">41.96%</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that <strong>subscriber users ride more bike for the past 12-month,
+which are 58% or 17% higher than the one-time users</strong>.</p>
+
+
+
+
+<h3 id="trips-per-months">Trips per Months
+  <a href="#trips-per-months"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Let’s add some level of detail to show how the number of trips differ
+per month.</p>
+<p><img src="img/monthly-trips-stacked-bar-1.png" alt=""><!-- --></p>
+<p>Here, we can see that the number of rides rose from January to July, and
 continuously decreased after that. <strong>The number of rides taken in June -
 September is the highest throughout the year, with more than 750
 thousand bike rides per month</strong>, or <strong>more than 50% of the total bike
 rides are taken during these months</strong>. Besides that, May and October
-also have a quite high number of bike rides.</p><p>Looking at the individual user type can help us understand their
-behavior on a monthly level.</p><p><img src=img/monthly-trips-column-1.png alt></p><p>We can see conclude that:</p><ol><li>There are more rides by the subscriber users each month.</li><li>Both user type has the same pattern in term of the number of bike
-ride they take each month.</li><li>The number of rides by one-time users increasing significantly on
-May.</li></ol><h3 id=trips-per-day>Trips per Day
-<a href=#trips-per-day><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Next, let’s see how each user type use their bike on daily level.</p><p><img src=img/daily-trips-stacked-bar-1.png alt></p><p>We can see that there are high number of bike rides on weekend,
+also have a quite high number of bike rides.</p>
+<p>Looking at the individual user type can help us understand their
+behavior on a monthly level.</p>
+<p><img src="img/monthly-trips-column-1.png" alt=""><!-- --></p>
+<p>We can see conclude that:</p>
+<ol>
+<li>There are more rides by the subscriber users each month.</li>
+<li>Both user type has the same pattern in term of the number of bike
+ride they take each month.</li>
+<li>The number of rides by one-time users increasing significantly on
+May.</li>
+</ol>
+
+
+
+
+<h3 id="trips-per-day">Trips per Day
+  <a href="#trips-per-day"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Next, let’s see how each user type use their bike on daily level.</p>
+<p><img src="img/daily-trips-stacked-bar-1.png" alt=""><!-- --></p>
+<p>We can see that there are high number of bike rides on weekend,
 especially on Saturday. Other than that, the number of rides are quite
-consistent along the week.</p><p>Next, let’s see the breakdown for each user type.</p><p><img src=img/daily-trips-column-bar-1.png alt></p><p>From this visualization we can see that:</p><ol><li>There are differences between each user type on how they use their
+consistent along the week.</p>
+<p>Next, let’s see the breakdown for each user type.</p>
+<p><img src="img/daily-trips-column-bar-1.png" alt=""><!-- --></p>
+<p>From this visualization we can see that:</p>
+<ol>
+<li>There are differences between each user type on how they use their
 bike on day-to-day basis. Along the week, more rides are taken by
 the subscriber users. Meanwhile, more rides are taken on the weekday
-by the one-time users.</li><li>The high number of rides by subscriber users along the week could
-possibly mean they use their bike to commute to the workplace.</li><li>The high number of rides by one-time users on the weekend could
+by the one-time users.</li>
+<li>The high number of rides by subscriber users along the week could
+possibly mean they use their bike to commute to the workplace.</li>
+<li>The high number of rides by one-time users on the weekend could
 indicate that riders use their bike on this particular days for
-sightseeing.</li></ol><h3 id=trips-per-hour>Trips per Hour
-<a href=#trips-per-hour><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>This analysis can give us an overview of what time of the day each user
-type use their Cyclistic’s bike.</p><p><img src=img/hourly-trips-stacked-bar-1.png alt></p><p>The gradual increase of bike rides after 08:00 until 17:00 could
+sightseeing.</li>
+</ol>
+
+
+
+
+<h3 id="trips-per-hour">Trips per Hour
+  <a href="#trips-per-hour"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>This analysis can give us an overview of what time of the day each user
+type use their Cyclistic’s bike.</p>
+<p><img src="img/hourly-trips-stacked-bar-1.png" alt=""><!-- --></p>
+<p>The gradual increase of bike rides after 08:00 until 17:00 could
 indicate the rides taken in this particular time are to commute to
 workplace/school. The peaks at 08:00 and 17:00 could also support that
-claim.</p><h3 id=weekday-vsweekend-analysis>Weekday vs. Weekend Analysis
-<a href=#weekday-vsweekend-analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>From the day-to-day analysis, we can see that the number of trips taken
+claim.</p>
+
+
+
+
+<h3 id="weekday-vsweekend-analysis">Weekday vs. Weekend Analysis
+  <a href="#weekday-vsweekend-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>From the day-to-day analysis, we can see that the number of trips taken
 by the subscriber users is high during the week, while on the weekend
-there are more trips taken by the one-time users.</p><p>Let’s breakdown the hourly result from the previous analysis to show how
-each user type uses their bike on the weekday vs. on the weekend.</p><p><img src=img/week-type-bar-1.png alt></p><p>The pattern for the weekday showing the same result as the previous
+there are more trips taken by the one-time users.</p>
+<p>Let’s breakdown the hourly result from the previous analysis to show how
+each user type uses their bike on the weekday vs. on the weekend.</p>
+<p><img src="img/week-type-bar-1.png" alt=""><!-- --></p>
+<p>The pattern for the weekday showing the same result as the previous
 result on the number of trips per hour. On the other hand, the result
 for the weekend trips shows the number of trips is gradually increasing
-along the day and hit the peak at around 15:00.</p><p>We can look at each weekday and weekend result to better understand the
+along the day and hit the peak at around 15:00.</p>
+<p>We can look at each weekday and weekend result to better understand the
 different. For the weekday, we can look at the chart below to understand
-how each user type uses their bike.</p><p><img src=img/weekday-trips-bar-1.png alt></p><p>For the weekday, subscriber users take more trips than the one-time
+how each user type uses their bike.</p>
+<p><img src="img/weekday-trips-bar-1.png" alt=""><!-- --></p>
+<p>For the weekday, subscriber users take more trips than the one-time
 users. Other than that, each user type have the same behavior. The peaks
 at 08:00 and 17:00 and the gradual increase of bike rides between those
 hours could possibly mean they use their bike to get to work/school.
 Data on the age group of each riders could help to clarify this
-statement.</p><p>For the weekend, we can look at the chart below to understand how each
-user type uses their bike.</p><p><img src=img/weekend-trips-bar-1.png alt></p><p>For the weekend, the behavior on how each user types use their bike are
+statement.</p>
+<p>For the weekend, we can look at the chart below to understand how each
+user type uses their bike.</p>
+<p><img src="img/weekend-trips-bar-1.png" alt=""><!-- --></p>
+<p>For the weekend, the behavior on how each user types use their bike are
 also the same. But not like on the weekday, the average number of rides
 taken by the one-time users are higher especially after 10:00. The high
 number of rides from both user types in middle of the day could indicate
-that people use their bike for sightseeing.</p><p>The high number of trips taken by the one-time users even on the weekday
+that people use their bike for sightseeing.</p>
+<p>The high number of trips taken by the one-time users even on the weekday
 could support the claim that Cyclistic’s team made about casual users or
-the one-time users awareness on their bike-sharing service.</p><h3 id=trip-duration-analysis>Trip Duration Analysis
-<a href=#trip-duration-analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>First, let’s see the basic statistic on trip duration data after
-removing outliers.</p><table><thead><tr><th style=text-align:right>average_duration_minutes</th><th style=text-align:right>median_duration_minutes</th></tr></thead><tbody><tr><td style=text-align:right>12.23652</td><td style=text-align:right>9.933333</td></tr></tbody></table><p>On average, each trips taken from the past 12-months data were about 12
-minutes long.</p><p><img src=img/density-plot-1.png alt></p><p>The density plot above is right skewed, meaning there are rides that are
-far longer than the average rides duration.</p><p>Let’s now see the trip duration for each user type.</p><table><thead><tr><th style=text-align:left>user_type</th><th style=text-align:right>mean_trip_duration_min</th><th style=text-align:right>median_trip_duration_min</th></tr></thead><tbody><tr><td style=text-align:left>One-time user</td><td style=text-align:right>14.16656</td><td style=text-align:right>12.05</td></tr><tr><td style=text-align:left>Subscriber</td><td style=text-align:right>10.99073</td><td style=text-align:right>8.70</td></tr></tbody></table><p>Here we can see that even though the subscriber users ride the bike
+the one-time users awareness on their bike-sharing service.</p>
+
+
+
+
+<h3 id="trip-duration-analysis">Trip Duration Analysis
+  <a href="#trip-duration-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>First, let’s see the basic statistic on trip duration data after
+removing outliers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">average_duration_minutes</th>
+<th style="text-align:right">median_duration_minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">12.23652</td>
+<td style="text-align:right">9.933333</td>
+</tr>
+</tbody>
+</table>
+<p>On average, each trips taken from the past 12-months data were about 12
+minutes long.</p>
+<p><img src="img/density-plot-1.png" alt=""><!-- --></p>
+<p>The density plot above is right skewed, meaning there are rides that are
+far longer than the average rides duration.</p>
+<p>Let’s now see the trip duration for each user type.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">user_type</th>
+<th style="text-align:right">mean_trip_duration_min</th>
+<th style="text-align:right">median_trip_duration_min</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">One-time user</td>
+<td style="text-align:right">14.16656</td>
+<td style="text-align:right">12.05</td>
+</tr>
+<tr>
+<td style="text-align:left">Subscriber</td>
+<td style="text-align:right">10.99073</td>
+<td style="text-align:right">8.70</td>
+</tr>
+</tbody>
+</table>
+<p>Here we can see that even though the subscriber users ride the bike
 more, the trip duration of one-time users are higher than them, which is
 14 minutes per trips, whereas the average duration per trips for
-subscriber users is about 10 minutes.</p><p><img src=img/trip-duration-user-type-boxplot-1.png alt></p><p>By looking at the previous result on how each user type use their bike
+subscriber users is about 10 minutes.</p>
+<p><img src="img/trip-duration-user-type-boxplot-1.png" alt=""><!-- --></p>
+<p>By looking at the previous result on how each user type use their bike
 on daily basis, this result should make sense. The high number of trips
 by subscriber users along the week could indicate that they use their
 bike to commute to work. Lower trip duration from the data above meaning
-getting to their destination fast is their priority.</p><h3 id=pick-up-location-analysis>Pick-up Location Analysis
-<a href=#pick-up-location-analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Let’s analyze the popular bike pick-up location for each user type. I’m
-going to use Tableau here to help showing the result.</p><p><img src=../figure/Chicago-map.png alt></p><p>From the visual above, we can conclude several things:</p><ol><li>The top bike pick-up location for subscriber users are more
+getting to their destination fast is their priority.</p>
+
+
+
+
+<h3 id="pick-up-location-analysis">Pick-up Location Analysis
+  <a href="#pick-up-location-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Let’s analyze the popular bike pick-up location for each user type. I’m
+going to use Tableau here to help showing the result.</p>
+<p><img src="../figure/Chicago-map.png" alt=""></p>
+<p>From the visual above, we can conclude several things:</p>
+<ol>
+<li>The top bike pick-up location for subscriber users are more
 distributed along each point. This can be seen by the size of each
 circle that has quite similar size with the other. Meanwhile, we can
 see several spots with circle that is larger than the other circles
-on the top pick-up locations for the one-time users.</li><li>The top pick-location are concentrated mainly on the south and the
-central area of the city.</li><li>The top pick-up location for one-time users are more concentrated
+on the top pick-up locations for the one-time users.</li>
+<li>The top pick-location are concentrated mainly on the south and the
+central area of the city.</li>
+<li>The top pick-up location for one-time users are more concentrated
 towards the area where most of the city’s tourism attractions are
 located, which is on the central area. On the other hand, The top
 pick-up location for the subscriber users are more concentrated
-toward the western area of the city.</li><li>On the subscriber users’ result, the several spots on the bottom are
+toward the western area of the city.</li>
+<li>On the subscriber users’ result, the several spots on the bottom are
 located near the University of Chicago. This means, using bike
-sharing is quite popular for the college students.</li></ol><h2 id=result>Result
-<a href=#result><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>Some actions/recommendations from this analysis are:</p><ol><li><p>Perform marketing campaign on high trips months, which is from May -
-October.</p></li><li><p>Add subscription variation to include 6-months period subscription.</p></li><li><p>Create a special promotion price for university students.</p></li></ol></section><footer class=post-footer><div class="post-pagination dt w-100 mt4 mb2"><a class="prev dtc pr2 tl v-top fw6" href=https://tfkachmad.github.io/project/bellabeat/>&larr; Bellabeat - How can a wellness technology company play it smart?</a></div></footer></article></section></main><aside class=page-sidebar role=complementary><img src=/project/sidebar-listing.png class="db ma0"><div class="blog-info ph4 pt4 pb4 pb0-l"><h1 class=f3>Collections of data projects</h1><p class="f6 lh-copy measure">Some projects I have worked on to showcase skills in data analytics.</p><p class="f7 measure lh-copy i mh0-l">Written by Taufik Achmad</p><small class="db f7"><a href=/project/ class="dib fw7 ttu bt bw1 b--black-10 pt3">View all projects</a></small></div><nav id=TableOfContents class="sticky ph4 pb4 pt6" role=navigation><h2 class="mv0 f5 fw7 ttu tracked dib">On this page</h2><nav id=TableOfContents><ul><li><ul><li><a href=#introduction>Introduction</a></li><li><a href=#background>Background</a></li><li><a href=#business-problem>Business Problem</a></li><li><a href=#analysis>Analysis</a><ul><li><a href=#trips-per-user-type>Trips per User Type</a></li><li><a href=#trips-per-months>Trips per Months</a></li><li><a href=#trips-per-day>Trips per Day</a></li><li><a href=#trips-per-hour>Trips per Hour</a></li><li><a href=#weekday-vsweekend-analysis>Weekday vs. Weekend Analysis</a></li><li><a href=#trip-duration-analysis>Trip Duration Analysis</a></li><li><a href=#pick-up-location-analysis>Pick-up Location Analysis</a></li></ul></li><li><a href=#result>Result</a></li></ul></li></ul></nav></nav></aside><footer class="site-footer pv4 bt b--transparent ph5" role=contentinfo><nav class="db dt-l w-100"><p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">&copy; 2023 Taufik Achmad
-<span class=middot-divider></span>
-Made with <span xmlns:dct=http://purl.org/dc/terms/ property="dct:title"><a xmlns:dct=http://purl.org/dc/terms/ href=https://github.com/hugo-apero/ rel=dct:source>Hugo Apéro</a></span>.<br>Based on <span xmlns:dct=http://purl.org/dc/terms/ property="dct:title"><a xmlns:dct=http://purl.org/dc/terms/ href=https://github.com/formspree/blogophonic-hugo rel=dct:source>Blogophonic</a></span> by <a xmlns:cc=http://creativecommons.org/ns# href=https://formspree.io property="cc:attributionName" rel=cc:attributionurl>Formspree</a>.</p><div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0"><div class=social-icon-links aria-hidden=true><a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=mailto:taufik.achmad.septian@gmail.com title=envelope-square><i class="fas fa-envelope-square fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://github.com/tfkachmad title=github target=_blank rel=noopener><i class="fab fa-github fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://www.linkedin.com/in/taufik-achmad/ title=linkedin target=_blank rel=noopener><i class="fab fa-linkedin fa-lg fa-fw"></i></a></div></div><div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0"></div></nav></footer></div></body></html>
+sharing is quite popular for the college students.</li>
+</ol>
+
+
+
+
+<h2 id="result">Result
+  <a href="#result"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Some actions/recommendations from this analysis are:</p>
+<ol>
+<li>
+<p>Perform marketing campaign on high trips months, which is from May -
+October.</p>
+</li>
+<li>
+<p>Add subscription variation to include 6-months period subscription.</p>
+</li>
+<li>
+<p>Create a special promotion price for university students.</p>
+</li>
+</ol>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="https://hugo-apero.github.io/apero/project/bellabeat/">&larr; Bellabeat - How can a wellness technology company play it smart?</a>
+  
+  
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<aside class="page-sidebar" role="complementary">
+                         
+ 
+
+
+                       
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <img src="/apero/project/sidebar-listing.png" class="db ma0">
+
+
+<div class="blog-info ph4 pt4 pb4 pb0-l">
+  
+
+  <h1 class="f3">Collections of data projects</h1>
+  <p class="f6 lh-copy measure">Some projects I have worked on to showcase skills in data analytics.</p>
+  <p class="f7 measure lh-copy i mh0-l">Written by Taufik Achmad</p>
+
+
+  <small class="db f7"><a href="/project/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View all projects</a></small>
+</div>
+
+
+<div class="ad-unit pa4">
+  
+  <p class="f7 measure-narrow lh-copy mv0 pt5"><span class="b ttu db">Made by Formspree</span><span><a href="https://formspree.io" target="_blank">Formspree is a form backend, API and email  service for HTML forms</a>. It is the simplest way to collect form submissions on your static website.</span></p>
+  
+</div>
+
+  
+  
+                         
+
+
+
+<nav id="TableOfContents" class="sticky ph4 pb4 pt6" role="navigation">
+  <h2 class="mv0 f5 fw7 ttu tracked dib">On this page</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#business-problem">Business Problem</a></li>
+        <li><a href="#analysis">Analysis</a>
+          <ul>
+            <li><a href="#trips-per-user-type">Trips per User Type</a></li>
+            <li><a href="#trips-per-months">Trips per Months</a></li>
+            <li><a href="#trips-per-day">Trips per Day</a></li>
+            <li><a href="#trips-per-hour">Trips per Hour</a></li>
+            <li><a href="#weekday-vsweekend-analysis">Weekday vs. Weekend Analysis</a></li>
+            <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+            <li><a href="#pick-up-location-analysis">Pick-up Location Analysis</a></li>
+          </ul>
+        </li>
+        <li><a href="#result">Result</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+</aside>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 Taufik Achmad
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="mailto:taufik.achmad.septian@gmail.com" title="envelope-square" >
+      <i class="fas fa-envelope-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/tfkachmad" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/taufik-achmad/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+    </div>
+  </nav>
+  
+</footer>
+
+      </div>
+    </body>
+</html>
