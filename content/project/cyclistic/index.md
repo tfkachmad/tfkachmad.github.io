@@ -269,7 +269,7 @@ getting to their destination fast is their priority.
 Let’s analyze the popular bike pick-up location for each user type. I’m
 going to use Tableau here to help showing the result.
 
-![](../figure/Chicago-map.png)
+![](img/Chicago-map.png)
 
 From the visual above, we can conclude several things:
 
