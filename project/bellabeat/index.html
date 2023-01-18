@@ -1,132 +1,861 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=generator content="Hugo 0.110.0"><title>Bellabeat - How can a wellness technology company play it smart? | Taufik Achmad</title><meta name=description content="Understanding how people use health tracking devices to create data-driven marketing campaigns."><meta property="og:site_name" content="Taufik Achmad"><meta property="og:title" content="Bellabeat - How can a wellness technology company play it smart? | Taufik Achmad"><meta property="og:description" content="Understanding how people use health tracking devices to create data-driven marketing campaigns."><meta property="og:type" content="page"><meta property="og:url" content="https://tfkachmad.github.io/project/bellabeat/"><meta property="og:locale" content="en"><meta property="og:image" content="https://tfkachmad.github.io/project/bellabeat/featured.jpg"><meta property="twitter:card" content="summary_large_image"><meta name=twitter:image content="https://tfkachmad.github.io/project/bellabeat/featured.jpg"><meta itemprop=name content="Bellabeat - How can a wellness technology company play it smart?"><meta itemprop=description content="📷 Blocks Fletcher/Unsplash
-Introduction This project is my attempt to solve the second case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can be accessed here.
-This project will be about understanding how people use smart devices to help with their health and well-being. This knowledge then will be implemented on products of a smart devices company called Bellabeat. This company aims to manufacture smart devices to help women with their overall health and well-being."><meta itemprop=datePublished content="2022-12-10T17:36:20+07:00"><meta itemprop=dateModified content="2022-12-10T17:36:20+07:00"><meta itemprop=wordCount content="1730"><meta itemprop=image content="https://tfkachmad.github.io/project/bellabeat/featured.jpg"><meta itemprop=keywords content="R,"><!--[if IE]><script src=//html5shiv.googlecode.com/svn/trunk/html5.js></script><![endif]--><link rel="shortcut icon" href=/img/favicon.ico type=image/x-icon><link rel=icon href=/img/favicon.ico type=image/x-icon><link rel=stylesheet href=/style.main.min.ccfd0ae7ccfe47ae15990e5256e593142dc5452efbebc882a1ba95ce6641e10f.css integrity="sha256-zP0K58z+R64VmQ5SVuWTFC3FRS7768iCobqVzmZB4Q8=" media=screen><script src=/panelset.min.ed1ac24b6e16f4e2481e3d1d098ae66f5bc77438aef619e6e266d8ac5b00dc72.js type=text/javascript></script>
-<script src=/main.min.e9804d780214335f4ea268c5f83a1604cab80515817e245a4741b4a4c55ded3e.js type=text/javascript></script></head><body><div class="grid-container single-sidebar"><header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role=banner><nav class="site-nav db dt-l w-100" role=navigation><a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href=https://tfkachmad.github.io/ title=Home><img src=/img/ta-logo-apero.png class="dib db-l h2 w-auto" alt="Taufik Achmad"></a><div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked"><a class="link f6 f5-l dib pv1 ph2" href=/about/ title=About>About</a>
-<a class="link f6 f5-l dib pv1 ph2 active" href=/project/ title="Project Portfolio">Projects</a><div class="dib v-mid"><div class=social-icon-links aria-hidden=true><a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=mailto:taufik.achmad.septian@gmail.com title=envelope-square><i class="fas fa-envelope-square fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://github.com/tfkachmad title=github target=_blank rel="me noopener"><i class="fab fa-github fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://www.linkedin.com/in/taufik-achmad/ title=linkedin target=_blank rel="me noopener"><i class="fab fa-linkedin fa-lg fa-fw"></i></a></div></div></div></nav></header><main class="page-main pa4" role=main><section class="page-content mw7 center"><article class="post-content pa0 pr3-l"><header class=post-header><h1 class="f1 lh-solid measure-narrow mb3 fw4">Bellabeat - How can a wellness technology company play it smart?</h1><h4 class="f4 mt0 mb4 lh-title measure">Understanding how people use health tracking devices to create data-driven marketing campaigns.</h4><p class="f6 measure lh-copy mv1">By Taufik Achmad in <a href=https://tfkachmad.github.io/categories/project>Project</a></p><p class="f7 db mv0 ttu">December 10, 2022</p><div class="ph0 pt5"><a class="btn-links mr2 ba dib" href=https://rpubs.com/taufik-achmad/bellabeat target=_blank rel=noopener><i class="fab fa-r-project fa-lg fa-fw mr2"></i>Full project</a></div></header><section class="post-body pt5 pb4"><p><img src=./img/watch_blocks_fletcher.jpg alt=watch><br>📷 Blocks Fletcher/Unsplash</p><h2 id=introduction>Introduction
-<a href=#introduction><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>This project is my attempt to solve the second case study from the
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" />
+<title>Bellabeat - How can a wellness technology company play it smart? | Taufik Achmad</title>
+
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="Understanding how people use health tracking devices to create data-driven marketing campaigns.">
+
+
+<meta property="og:site_name" content="Taufik Achmad">
+<meta property="og:title" content="Bellabeat - How can a wellness technology company play it smart? | Taufik Achmad">
+<meta property="og:description" content="Understanding how people use health tracking devices to create data-driven marketing campaigns." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="https://hugo-apero.github.io/apero/project/bellabeat/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="https://hugo-apero.github.io/apero/project/bellabeat/featured.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="https://hugo-apero.github.io/apero/project/bellabeat/featured.jpg" >
+    
+    
+  <meta itemprop="name" content="Bellabeat - How can a wellness technology company play it smart?">
+<meta itemprop="description" content="📷 Blocks Fletcher/Unsplash
+Introduction     This project is my attempt to solve the second case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can be accessed here.
+This project will be about understanding how people use smart devices to help with their health and well-being. This knowledge then will be implemented on products of a smart devices company called Bellabeat. This company aims to manufacture smart devices to help women with their overall health and well-being.">
+<meta itemprop="datePublished" content="2022-12-10T17:36:20+07:00" />
+<meta itemprop="dateModified" content="2022-12-10T17:36:20+07:00" />
+<meta itemprop="wordCount" content="1730">
+<meta itemprop="image" content="https://hugo-apero.github.io/apero/project/bellabeat/featured.jpg">
+
+
+
+<meta itemprop="keywords" content="R," />
+
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/apero/style.main.min.7d7d3faed36aa7200a51cb495158153324c43125dd6a31916dcc93fc53c0fdf6.css" integrity="sha256-fX0/rtNqpyAKUctJUVgVMyTEMSXdajGRbcyT/FPA/fY=" media="screen">
+  
+  
+  <script src="/apero/panelset.min.41f62c42d5f25dd80e81136866f4f1baa1bc17669edfd002e75c0e107953789b.js" type="text/javascript"></script>
+  
+  
+  <script src="/apero/main.min.07ec8e08cbb63db3a2cf7d4a7df6f7be00c715f13b64d8df6a2c48441ba8b14b.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single-sidebar">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="https://hugo-apero.github.io/apero/" title="Home">
+      <img src="/apero/img/ta-logo-apero.png" class="dib db-l h2 w-auto" alt="Taufik Achmad">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/apero/about/" title="About">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/apero/project/" title="Project Portfolio">Projects</a>
+      
+      
+      <div class="dib v-mid">
+        <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="mailto:taufik.achmad.septian@gmail.com" title="envelope-square" >
+      <i class="fas fa-envelope-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/tfkachmad" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/taufik-achmad/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+      </div>
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 pr3-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Bellabeat - How can a wellness technology company play it smart?</h1>
+        <h4 class="f4 mt0 mb4 lh-title measure">Understanding how people use health tracking devices to create data-driven marketing campaigns.</h4>
+        <p class="f6 measure lh-copy mv1">By Taufik Achmad in <a href="https://hugo-apero.github.io/apero/categories/project">Project</a> </p>
+        <p class="f7 db mv0 ttu">December 10, 2022</p>
+        
+      
+      <div class="ph0 pt5">
+        
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+      
+  <a class="btn-links mr2 ba dib" href="https://rpubs.com/taufik-achmad/bellabeat" target="_blank" rel="noopener"><i class="fab fa-r-project fa-lg fa-fw mr2"></i>Full project</a>
+
+
+      </div>
+      
+      
+      </header>
+      <section class="post-body pt5 pb4">
+        <p><img src="./img/watch_blocks_fletcher.jpg" alt="watch"><br>
+📷 Blocks Fletcher/Unsplash</p>
+
+
+
+
+<h2 id="introduction">Introduction
+  <a href="#introduction"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>This project is my attempt to solve the second case study from the
 <strong>Google Data Analytics Professional Certificate</strong> <strong>Capstone Projects</strong>
 on <strong>Coursera</strong> that you can be accessed
-<a href="https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics" target=_blank rel=noopener>here</a>.</p><p>This project will be about understanding how people use smart devices to
+
+<a href="https://www.coursera.org/learn/google-data-analytics-capstone?specialization=google-data-analytics" target="_blank" rel="noopener">here</a>.</p>
+<p>This project will be about understanding how people use smart devices to
 help with their health and well-being. This knowledge then will be
 implemented on products of a smart devices company called <strong>Bellabeat</strong>.
 This company aims to manufacture smart devices to help women with their
-overall health and well-being.</p><p>If you have any questions regarding this project, don’t hesitate to
-contact me through email
-<a href=mailto:taufik.achmad.septian@gmail.com>here</a>,
+overall health and well-being.</p>
+<p>If you have any questions regarding this project, don’t hesitate to
+contact me through email 
+<a href="mailto:taufik.achmad.septian@gmail.com">here</a>,
 or send me a message on LinkedIn
-<a href=https://www.linkedin.com/in/taufik-achmad/ target=_blank rel=noopener>here</a>.</p><h2 id=background>Background
-<a href=#background><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>Urška Sršen and Sando Mur founded <strong>Bellabeat</strong>, a high-tech company
+
+<a href="https://www.linkedin.com/in/taufik-achmad/" target="_blank" rel="noopener">here</a>.</p>
+
+
+
+
+<h2 id="background">Background
+  <a href="#background"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Urška Sršen and Sando Mur founded <strong>Bellabeat</strong>, a high-tech company
 that manufactures health-focused smart products. Sršen used her
 background as an artist to develop beautifully designed technology that
 informs and inspires women around the world. Collecting data on
 activity, sleep, stress, and reproductive health has allowed Bellabeat
 to empower women with knowledge about their health and habits. Since it
 was founded in 2013, Bellabeat has grown rapidly and quickly positioned
-itself as a tech-driven wellness company for women.</p><h2 id=business-problem>Business Problem
-<a href=#business-problem><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>Sršen knows that an analysis of Bellabeat’s available consumer data
+itself as a tech-driven wellness company for women.</p>
+
+
+
+
+<h2 id="business-problem">Business Problem
+  <a href="#business-problem"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>Sršen knows that an analysis of Bellabeat’s available consumer data
 would reveal more growth opportunities. She has asked the marketing
 analytics team to focus on a Bellabeat product and analyze smart device
 usage data to gain insight into how people are already using their smart
 devices. Then, using this information, she would like high-level
 recommendations for how these trends can inform Bellabeat marketing
-strategy.</p><p>Sršen asks you to analyze smart device usage data to gain insight into
+strategy.</p>
+<p>Sršen asks you to analyze smart device usage data to gain insight into
 how consumers use non-Bellabeat smart devices. These questions will
-guide your analysis:</p><ol><li><strong>What are some trends in smart device usage?</strong></li><li><strong>How could these trends apply to Bellabeat customers?</strong></li><li><strong>How could these trends help inﬂuence Bellabeat marketing
-strategy?</strong></li></ol><h2 id=analysis>Analysis
-<a href=#analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>We’re going to focus on analyzing the sleep and activity level from the
-data to keep the result aligned with what Bellabeat’s products measure.</p><h3 id=data-overview>Data overview
-<a href=#data-overview><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Let’s see how many users we have in our data.</p><pre><code>## [1] &quot;There are 33 number of unique users in the data.&quot;
-</code></pre><p>Also, let’s see what is the interval of time our data is collected.</p><pre><code>## [1] &quot;2016-04-12 to 2016-05-12&quot;
-</code></pre><p>From our daily level data, there are three variables there, that is
+guide your analysis:</p>
+<ol>
+<li><strong>What are some trends in smart device usage?</strong></li>
+<li><strong>How could these trends apply to Bellabeat customers?</strong></li>
+<li><strong>How could these trends help inﬂuence Bellabeat marketing
+strategy?</strong></li>
+</ol>
+
+
+
+
+<h2 id="analysis">Analysis
+  <a href="#analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>We’re going to focus on analyzing the sleep and activity level from the
+data to keep the result aligned with what Bellabeat’s products measure.</p>
+
+
+
+
+<h3 id="data-overview">Data overview
+  <a href="#data-overview"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Let’s see how many users we have in our data.</p>
+<pre><code>## [1] &quot;There are 33 number of unique users in the data.&quot;
+</code></pre>
+<p>Also, let’s see what is the interval of time our data is collected.</p>
+<pre><code>## [1] &quot;2016-04-12 to 2016-05-12&quot;
+</code></pre>
+<p>From our daily level data, there are three variables there, that is
 activity, sleep, and weight log. Let’s see how our 33 users tracked
-these variables using their devices.</p><pre><code>## [1] &quot;33 of 33 users tracked their activity level at least once.&quot;
+these variables using their devices.</p>
+<pre><code>## [1] &quot;33 of 33 users tracked their activity level at least once.&quot;
 
 ## [1] &quot;24 of 33 users tracked their sleep at least once.&quot;
 
 ## [1] &quot;8 of 33 users tracked their weight level at least once.&quot;
-</code></pre><p>We can see what is the favorable variable the users in our data is more
+</code></pre>
+<p>We can see what is the favorable variable the users in our data is more
 interested to know about, that is their activity level throughout the
-day.</p><p>We would also like to see some summary statistics from our data. Let’s
-see how our daily tracking data statistics summary looks like.</p><table><thead><tr><th style=text-align:right> </th><th style=text-align:right>Min</th><th style=text-align:right>Mean</th><th style=text-align:right>Median</th><th style=text-align:right>Max</th></tr></thead><tbody><tr><td style=text-align:right><strong>Calories</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>2303.61</td><td style=text-align:right>2134.00</td><td style=text-align:right>4900.00</td></tr><tr><td style=text-align:right><strong>FairlyActiveMinutes</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>13.56</td><td style=text-align:right>6.00</td><td style=text-align:right>143.00</td></tr><tr><td style=text-align:right><strong>LightlyActiveMinutes</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>192.81</td><td style=text-align:right>199.00</td><td style=text-align:right>518.00</td></tr><tr><td style=text-align:right><strong>SedentaryMinutes</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>991.21</td><td style=text-align:right>1057.50</td><td style=text-align:right>1440.00</td></tr><tr><td style=text-align:right><strong>TotalActiveHour</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>3.79</td><td style=text-align:right>4.12</td><td style=text-align:right>9.20</td></tr><tr><td style=text-align:right><strong>TotalActiveMinutes</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>227.54</td><td style=text-align:right>247.00</td><td style=text-align:right>552.00</td></tr><tr><td style=text-align:right><strong>TotalHourAsleep</strong></td><td style=text-align:right>0.97</td><td style=text-align:right>6.99</td><td style=text-align:right>7.21</td><td style=text-align:right>13.27</td></tr><tr><td style=text-align:right><strong>TotalMinutesAsleep</strong></td><td style=text-align:right>58.00</td><td style=text-align:right>419.17</td><td style=text-align:right>432.50</td><td style=text-align:right>796.00</td></tr><tr><td style=text-align:right><strong>TotalSteps</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>7637.91</td><td style=text-align:right>7405.50</td><td style=text-align:right>36019.00</td></tr><tr><td style=text-align:right><strong>VeryActiveMinutes</strong></td><td style=text-align:right>0.00</td><td style=text-align:right>21.16</td><td style=text-align:right>4.00</td><td style=text-align:right>210.00</td></tr></tbody></table><p>From the table above, we can conclude several things:</p><ul><li><p>On average, users are sleeping for about 7 hours each day. Some users
+day.</p>
+<p>We would also like to see some summary statistics from our data. Let’s
+see how our daily tracking data statistics summary looks like.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"> </th>
+<th style="text-align:right">Min</th>
+<th style="text-align:right">Mean</th>
+<th style="text-align:right">Median</th>
+<th style="text-align:right">Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>Calories</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">2303.61</td>
+<td style="text-align:right">2134.00</td>
+<td style="text-align:right">4900.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>FairlyActiveMinutes</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">13.56</td>
+<td style="text-align:right">6.00</td>
+<td style="text-align:right">143.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>LightlyActiveMinutes</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">192.81</td>
+<td style="text-align:right">199.00</td>
+<td style="text-align:right">518.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>SedentaryMinutes</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">991.21</td>
+<td style="text-align:right">1057.50</td>
+<td style="text-align:right">1440.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>TotalActiveHour</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">3.79</td>
+<td style="text-align:right">4.12</td>
+<td style="text-align:right">9.20</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>TotalActiveMinutes</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">227.54</td>
+<td style="text-align:right">247.00</td>
+<td style="text-align:right">552.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>TotalHourAsleep</strong></td>
+<td style="text-align:right">0.97</td>
+<td style="text-align:right">6.99</td>
+<td style="text-align:right">7.21</td>
+<td style="text-align:right">13.27</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>TotalMinutesAsleep</strong></td>
+<td style="text-align:right">58.00</td>
+<td style="text-align:right">419.17</td>
+<td style="text-align:right">432.50</td>
+<td style="text-align:right">796.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>TotalSteps</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">7637.91</td>
+<td style="text-align:right">7405.50</td>
+<td style="text-align:right">36019.00</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>VeryActiveMinutes</strong></td>
+<td style="text-align:right">0.00</td>
+<td style="text-align:right">21.16</td>
+<td style="text-align:right">4.00</td>
+<td style="text-align:right">210.00</td>
+</tr>
+</tbody>
+</table>
+<p>From the table above, we can conclude several things:</p>
+<ul>
+<li>
+<p>On average, users are sleeping for about 7 hours each day. Some users
 even sleeping up to 13 hours each day. We will analyze this result
 further because this could happen because they could also took some
-nap and make the value high.</p></li><li><p>Each users took about 7600 steps each day on average.</p></li><li><p>Looking at the <code>SedentaryMinutes</code> variable that tracking the number of
+nap and make the value high.</p>
+</li>
+<li>
+<p>Each users took about 7600 steps each day on average.</p>
+</li>
+<li>
+<p>Looking at the <code>SedentaryMinutes</code> variable that tracking the number of
 minutes users are in this activity level, there are users that is not
 performing any particular activities in their day. This can bee seen
-by the max value of this variable that is 1440 minutes or 24 hours.</p></li><li><p>On average, each user are active for about 4 hours each day. This
+by the max value of this variable that is 1440 minutes or 24 hours.</p>
+</li>
+<li>
+<p>On average, each user are active for about 4 hours each day. This
 value can be observed from the <code>TotalActiveHour</code> which showing how
 many hours are spent in active state, or combination from light,
-moderate, and very active activity duration.</p></li></ul><p>Before doing any transformation, let’s investigate how is our data
+moderate, and very active activity duration.</p>
+</li>
+</ul>
+<p>Before doing any transformation, let’s investigate how is our data
 distributed along the week. I would like to see if there are days where
-users use their devices more than other days.</p><table><thead><tr><th style=text-align:left>Day</th><th style=text-align:right>count</th><th style=text-align:left>percentage</th><th style=text-align:left>is_high</th></tr></thead><tbody><tr><td style=text-align:left>Mon</td><td style=text-align:right>120</td><td style=text-align:left>13%</td><td style=text-align:left>Low</td></tr><tr><td style=text-align:left>Tue</td><td style=text-align:right>152</td><td style=text-align:left>16%</td><td style=text-align:left>High</td></tr><tr><td style=text-align:left>Wed</td><td style=text-align:right>150</td><td style=text-align:left>16%</td><td style=text-align:left>High</td></tr><tr><td style=text-align:left>Thu</td><td style=text-align:right>147</td><td style=text-align:left>16%</td><td style=text-align:left>High</td></tr><tr><td style=text-align:left>Fri</td><td style=text-align:right>126</td><td style=text-align:left>13%</td><td style=text-align:left>Low</td></tr><tr><td style=text-align:left>Sat</td><td style=text-align:right>124</td><td style=text-align:left>13%</td><td style=text-align:left>Low</td></tr><tr><td style=text-align:left>Sun</td><td style=text-align:right>121</td><td style=text-align:left>13%</td><td style=text-align:left>Low</td></tr></tbody></table><p>Let’s visualize this result to understand the result easier.</p><p><img src=img/data-tracked-day-viz-1.png alt></p><p>We can see that the data are not distributed equally along the week
+users use their devices more than other days.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Day</th>
+<th style="text-align:right">count</th>
+<th style="text-align:left">percentage</th>
+<th style="text-align:left">is_high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Mon</td>
+<td style="text-align:right">120</td>
+<td style="text-align:left">13%</td>
+<td style="text-align:left">Low</td>
+</tr>
+<tr>
+<td style="text-align:left">Tue</td>
+<td style="text-align:right">152</td>
+<td style="text-align:left">16%</td>
+<td style="text-align:left">High</td>
+</tr>
+<tr>
+<td style="text-align:left">Wed</td>
+<td style="text-align:right">150</td>
+<td style="text-align:left">16%</td>
+<td style="text-align:left">High</td>
+</tr>
+<tr>
+<td style="text-align:left">Thu</td>
+<td style="text-align:right">147</td>
+<td style="text-align:left">16%</td>
+<td style="text-align:left">High</td>
+</tr>
+<tr>
+<td style="text-align:left">Fri</td>
+<td style="text-align:right">126</td>
+<td style="text-align:left">13%</td>
+<td style="text-align:left">Low</td>
+</tr>
+<tr>
+<td style="text-align:left">Sat</td>
+<td style="text-align:right">124</td>
+<td style="text-align:left">13%</td>
+<td style="text-align:left">Low</td>
+</tr>
+<tr>
+<td style="text-align:left">Sun</td>
+<td style="text-align:right">121</td>
+<td style="text-align:left">13%</td>
+<td style="text-align:left">Low</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s visualize this result to understand the result easier.</p>
+<p><img src="img/data-tracked-day-viz-1.png" alt=""><!-- --></p>
+<p>We can see that the data are not distributed equally along the week
 where almost half our data alone are generated on Tuesday, Wednesday,
 and Thursday. This means, these days are the days where people actively
-use their devices.</p><h3 id=activity-level-analysis>Activity level analysis
-<a href=#activity-level-analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>Before moving into the analysis, let’s first look at is the users in our
+use their devices.</p>
+
+
+
+
+<h3 id="activity-level-analysis">Activity level analysis
+  <a href="#activity-level-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>Before moving into the analysis, let’s first look at is the users in our
 data are meeting the
-<a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity#:~:text=Adults%20aged%2018,throughout%20the%20week" target=_blank rel=noopener>recommended</a>
+
+<a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity#:~:text=Adults%20aged%2018,throughout%20the%20week" target="_blank" rel="noopener">recommended</a>
 physical activity level, which is 150 minutes of moderate activity or 75
-minutes of vigorous-intensity per week.</p><pre><code>## [1] &quot;23 users achieved the recommended activity level per week.&quot;
-</code></pre><p>Now, let’s look at how the activity duration per day from each users are
-distributed.</p><p><img src=img/total-active-minutes-distrbution-1.png alt></p><p>We can see that the total activity intensity in minutes per day is
-normally distributed with average of 3.8 minutes per day.</p><p>Now, let’s breakdown the activity level of the users to the day-to-day
-level.</p><p><img src=img/activity-day-viz-1.png alt></p><p>We can see that throughout the week, the activity intensity of our users
+minutes of vigorous-intensity per week.</p>
+<pre><code>## [1] &quot;23 users achieved the recommended activity level per week.&quot;
+</code></pre>
+<p>Now, let’s look at how the activity duration per day from each users are
+distributed.</p>
+<p><img src="img/total-active-minutes-distrbution-1.png" alt=""><!-- --></p>
+<p>We can see that the total activity intensity in minutes per day is
+normally distributed with average of 3.8 minutes per day.</p>
+<p>Now, let’s breakdown the activity level of the users to the day-to-day
+level.</p>
+<p><img src="img/activity-day-viz-1.png" alt=""><!-- --></p>
+<p>We can see that throughout the week, the activity intensity of our users
 in the data are pretty much the same with slightly higher activity
 intensity on Saturday. We can also see that the level of activity for
 moderate and very active level of activity are constant along the week
 and the changes on the result are mostly caused by the light activity
-value.</p><p>Next, let’s breakdown this result to the hourly level to look at how the
-activity intensity are in a day.</p><p><img src=img/activity-hour-viz-1.png alt></p><p>We can see that high activity intensity in a day are started from 8 a.m.
+value.</p>
+<p>Next, let’s breakdown this result to the hourly level to look at how the
+activity intensity are in a day.</p>
+<p><img src="img/activity-hour-viz-1.png" alt=""><!-- --></p>
+<p>We can see that high activity intensity in a day are started from 8 a.m.
 until 9 p.m. in the night where users in the data are performing an
-activity for at least 10 minutes per hour.</p><p>Next, let’s breakdown this result in the term of time of day each
-activity take place.</p><table><thead><tr><th style=text-align:left>TimesDay</th><th style=text-align:right>average_intensity_minutes</th></tr></thead><tbody><tr><td style=text-align:left>Morning</td><td style=text-align:right>11.79</td></tr><tr><td style=text-align:left>Afternoon</td><td style=text-align:right>15.33</td></tr><tr><td style=text-align:left>Evening</td><td style=text-align:right>12.85</td></tr><tr><td style=text-align:left>Night</td><td style=text-align:right>2.44</td></tr></tbody></table><p>Let’s visualize this result.</p><p><img src=img/activity-tod-viz-1.png alt></p><p>From the result above, we can see that high activity intensity occurred
-in the afternoon or from 12 to 6 p.m.</p><p>Let’s also check how the data is looks like for the activity intensity
-each day on weektype level, or for the weekday and the weekend.</p><p><img src=img/activity-weektype-viz-1.png alt></p><p>The high intensity interval on the weekday have higher interval range,
+activity for at least 10 minutes per hour.</p>
+<p>Next, let’s breakdown this result in the term of time of day each
+activity take place.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">TimesDay</th>
+<th style="text-align:right">average_intensity_minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Morning</td>
+<td style="text-align:right">11.79</td>
+</tr>
+<tr>
+<td style="text-align:left">Afternoon</td>
+<td style="text-align:right">15.33</td>
+</tr>
+<tr>
+<td style="text-align:left">Evening</td>
+<td style="text-align:right">12.85</td>
+</tr>
+<tr>
+<td style="text-align:left">Night</td>
+<td style="text-align:right">2.44</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s visualize this result.</p>
+<p><img src="img/activity-tod-viz-1.png" alt=""><!-- --></p>
+<p>From the result above, we can see that high activity intensity occurred
+in the afternoon or from 12 to 6 p.m.</p>
+<p>Let’s also check how the data is looks like for the activity intensity
+each day on weektype level, or for the weekday and the weekend.</p>
+<p><img src="img/activity-weektype-viz-1.png" alt=""><!-- --></p>
+<p>The high intensity interval on the weekday have higher interval range,
 that is from 7 a.m. to 09 p.m. On the other hand, the range of the high
-intensity interval on weekend is from 9 a.m. to 9 p.m.</p><table><thead><tr><th style=text-align:left>Weektype</th><th style=text-align:right>activity_intensity_minutes</th></tr></thead><tbody><tr><td style=text-align:left>Weekday</td><td style=text-align:right>9.7</td></tr><tr><td style=text-align:left>Weekend</td><td style=text-align:right>9.6</td></tr></tbody></table><p>The average activity intensity on the weekday is 9.7 minutes per hour,
+intensity interval on weekend is from 9 a.m. to 9 p.m.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Weektype</th>
+<th style="text-align:right">activity_intensity_minutes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Weekday</td>
+<td style="text-align:right">9.7</td>
+</tr>
+<tr>
+<td style="text-align:left">Weekend</td>
+<td style="text-align:right">9.6</td>
+</tr>
+</tbody>
+</table>
+<p>The average activity intensity on the weekday is 9.7 minutes per hour,
 meanwhile it’s 9.5 minutes per hour on the weekend. That means, even
 thought they are starting their day earlier on the weekday, they are
-more active on the the weekend.</p><h3 id=sleep-analysis>Sleep analysis
-<a href=#sleep-analysis><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h3><p>First, let’s see how sleep are distributed within our daily data.</p><p><img src=img/sleep-dist-1.png alt></p><p>We can see that the the sleep are concentrated between 5.5 - 9, that
+more active on the the weekend.</p>
+
+
+
+
+<h3 id="sleep-analysis">Sleep analysis
+  <a href="#sleep-analysis"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h3>
+<p>First, let’s see how sleep are distributed within our daily data.</p>
+<p><img src="img/sleep-dist-1.png" alt=""><!-- --></p>
+<p>We can see that the the sleep are concentrated between 5.5 - 9, that
 means the users on our data are sleeping mostly for about 5.5 - 9 hours
 each day. With the average of NA hours asleep, the users are barely
 hitting the
-<a href="https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html#:~:text=Adult,per%20night3" target=_blank rel=noopener>recommended</a>
-amount of sleep each per night.</p><p>Let’s break down this data to look at what is the average hours they
-sleeps each day.</p><table><thead><tr><th style=text-align:left>Day</th><th style=text-align:right>avg_sleep_hour</th></tr></thead><tbody><tr><td style=text-align:left>Mon</td><td style=text-align:right>7.0</td></tr><tr><td style=text-align:left>Tue</td><td style=text-align:right>6.7</td></tr><tr><td style=text-align:left>Wed</td><td style=text-align:right>7.2</td></tr><tr><td style=text-align:left>Thu</td><td style=text-align:right>6.7</td></tr><tr><td style=text-align:left>Fri</td><td style=text-align:right>6.8</td></tr><tr><td style=text-align:left>Sat</td><td style=text-align:right>7.0</td></tr><tr><td style=text-align:left>Sun</td><td style=text-align:right>7.5</td></tr></tbody></table><p>We can see that the result are pretty consistent along the week, which
-is between 6.7 - 7.5 hours of sleep each day along the week.</p><p>Next, let’s analyze how the users in our data are taking nap. We will
+
+<a href="https://www.cdc.gov/sleep/about_sleep/how_much_sleep.html#:~:text=Adult,per%20night3" target="_blank" rel="noopener">recommended</a>
+amount of sleep each per night.</p>
+<p>Let’s break down this data to look at what is the average hours they
+sleeps each day.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Day</th>
+<th style="text-align:right">avg_sleep_hour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Mon</td>
+<td style="text-align:right">7.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Tue</td>
+<td style="text-align:right">6.7</td>
+</tr>
+<tr>
+<td style="text-align:left">Wed</td>
+<td style="text-align:right">7.2</td>
+</tr>
+<tr>
+<td style="text-align:left">Thu</td>
+<td style="text-align:right">6.7</td>
+</tr>
+<tr>
+<td style="text-align:left">Fri</td>
+<td style="text-align:right">6.8</td>
+</tr>
+<tr>
+<td style="text-align:left">Sat</td>
+<td style="text-align:right">7.0</td>
+</tr>
+<tr>
+<td style="text-align:left">Sun</td>
+<td style="text-align:right">7.5</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that the result are pretty consistent along the week, which
+is between 6.7 - 7.5 hours of sleep each day along the week.</p>
+<p>Next, let’s analyze how the users in our data are taking nap. We will
 only include sleep above 6 a.m. and under 6 p.m. to consider it as
-napping.</p><p>First, let’s analyze how is the value distributed.</p><p><img src=img/nap-dist-outliers-1.png alt></p><p>Let’s remove the outliers on the result. The outliers could be caused by
-the users that took sleep above 6 a.m. in the morning.</p><p><img src=img/nap-dist-no-outliers-1.png alt></p><p>We can see that most of the nap were taken for about 1 to 2 hours.</p><h2 id=result>Result
-<a href=#result><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="currentcolor"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"/></svg></a></h2><p>With the analysis performed above, let’s try to answer the questions
-listed from the business problem part.</p><ol><li><p><strong>What are some trends in smart device usage?</strong></p><ul><li><p>Most people only use their devices to track their overall activity
+napping.</p>
+<p>First, let’s analyze how is the value distributed.</p>
+<p><img src="img/nap-dist-outliers-1.png" alt=""><!-- --></p>
+<p>Let’s remove the outliers on the result. The outliers could be caused by
+the users that took sleep above 6 a.m. in the morning.</p>
+<p><img src="img/nap-dist-no-outliers-1.png" alt=""><!-- --></p>
+<p>We can see that most of the nap were taken for about 1 to 2 hours.</p>
+
+
+
+
+<h2 id="result">Result
+  <a href="#result"><svg class="anchor-symbol" aria-hidden="true" height="26" width="26" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h24v24H0z" fill="currentColor"></path>
+      <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76.0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71.0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71.0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76.0 5-2.24 5-5s-2.24-5-5-5z"></path>
+    </svg></a>
+</h2>
+<p>With the analysis performed above, let’s try to answer the questions
+listed from the business problem part.</p>
+<ol>
+<li>
+<p><strong>What are some trends in smart device usage?</strong></p>
+<ul>
+<li>
+<p>Most people only use their devices to track their overall activity
 level throughout the day. They are less interested in tracking
 other variables such as sleep and their weight, at least for the
-samples in our data.</p></li><li><p>People are already met the recommended health aspect to promote
+samples in our data.</p>
+</li>
+<li>
+<p>People are already met the recommended health aspect to promote
 their overall health and well-being, like activity level and
 sleep. We can say that people that use health-tracking devices
-already aware about their health condition and well-being.</p></li></ul></li><li><p><strong>How could these trends apply to Bellabeat customers?</strong></p><ul><li><p>Let the customers to plan their health target across the week,
+already aware about their health condition and well-being.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>How could these trends apply to Bellabeat customers?</strong></p>
+<ul>
+<li>
+<p>Let the customers to plan their health target across the week,
 like how many steps to take, activity level, and sleep, but still
 encourage the users to set target that meets the recommended
 health aspect. This way, the users can focus to improve their
-overall health with small improvement from time to time.</p></li><li><p>Maximizing the use of push notification on the app to help the
-users on keeping the tracks of their health.</p></li><li><p>Encouraging users to take nap to accommodate the lack of sleep on
-the night by sending push notification through the app.</p></li></ul></li><li><p><strong>How could these trends help inﬂuence Bellabeat marketing
-strategy?</strong></p><ul><li><p>Activity level is the health aspect that people are looking with
+overall health with small improvement from time to time.</p>
+</li>
+<li>
+<p>Maximizing the use of push notification on the app to help the
+users on keeping the tracks of their health.</p>
+</li>
+<li>
+<p>Encouraging users to take nap to accommodate the lack of sleep on
+the night by sending push notification through the app.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>How could these trends help inﬂuence Bellabeat marketing
+strategy?</strong></p>
+<ul>
+<li>
+<p>Activity level is the health aspect that people are looking with
 their devices to track their health. Meaning, promoting the
 products toward weight loss would not benefit the company in the
 long run. The team can focus to promote on how their product can
 help people to better understand their overall activity level
 throughout the day first, and how this can maintain and improve
-their overall health in the first place.</p></li><li><p>Create a feature that aggregate the overall health from the users
+their overall health in the first place.</p>
+</li>
+<li>
+<p>Create a feature that aggregate the overall health from the users
 by some scoring value. This will not only make Bellabeat products
 unique, but also can help the users to easily understand the
 overall health. This way, they don’t need to worry much about
 every health aspect that they need to monitor each day with their
-products, but only focus on improving this score.</p></li></ul></li></ol></section><footer class=post-footer><div class="post-pagination dt w-100 mt4 mb2"><a class="next dtc pl2 tr v-top fw6" href=https://tfkachmad.github.io/project/cyclistic/>Cyclistic - Analyzing User Behavior &rarr;</a></div></footer></article></section></main><aside class=page-sidebar role=complementary><img src=/project/sidebar-listing.png class="db ma0"><div class="blog-info ph4 pt4 pb4 pb0-l"><h1 class=f3>Collections of data projects</h1><p class="f6 lh-copy measure">Some projects I have worked on to showcase skills in data analytics.</p><p class="f7 measure lh-copy i mh0-l">Written by Taufik Achmad</p><small class="db f7"><a href=/project/ class="dib fw7 ttu bt bw1 b--black-10 pt3">View all projects</a></small></div><nav id=TableOfContents class="sticky ph4 pb4 pt6" role=navigation><h2 class="mv0 f5 fw7 ttu tracked dib">On this page</h2><nav id=TableOfContents><ul><li><ul><li><a href=#introduction>Introduction</a></li><li><a href=#background>Background</a></li><li><a href=#business-problem>Business Problem</a></li><li><a href=#analysis>Analysis</a><ul><li><a href=#data-overview>Data overview</a></li><li><a href=#activity-level-analysis>Activity level analysis</a></li><li><a href=#sleep-analysis>Sleep analysis</a></li></ul></li><li><a href=#result>Result</a></li></ul></li></ul></nav></nav></aside><footer class="site-footer pv4 bt b--transparent ph5" role=contentinfo><nav class="db dt-l w-100"><p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">&copy; 2023 Taufik Achmad
-<span class=middot-divider></span>
-Made with <span xmlns:dct=http://purl.org/dc/terms/ property="dct:title"><a xmlns:dct=http://purl.org/dc/terms/ href=https://github.com/hugo-apero/ rel=dct:source>Hugo Apéro</a></span>.<br>Based on <span xmlns:dct=http://purl.org/dc/terms/ property="dct:title"><a xmlns:dct=http://purl.org/dc/terms/ href=https://github.com/formspree/blogophonic-hugo rel=dct:source>Blogophonic</a></span> by <a xmlns:cc=http://creativecommons.org/ns# href=https://formspree.io property="cc:attributionName" rel=cc:attributionurl>Formspree</a>.</p><div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0"><div class=social-icon-links aria-hidden=true><a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=mailto:taufik.achmad.septian@gmail.com title=envelope-square><i class="fas fa-envelope-square fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://github.com/tfkachmad title=github target=_blank rel="me noopener"><i class="fab fa-github fa-lg fa-fw"></i></a>
-<a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href=https://www.linkedin.com/in/taufik-achmad/ title=linkedin target=_blank rel="me noopener"><i class="fab fa-linkedin fa-lg fa-fw"></i></a></div></div><div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0"></div></nav></footer></div></body></html>
+products, but only focus on improving this score.</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="https://hugo-apero.github.io/apero/project/cyclistic/">Cyclistic - Analyzing User Behavior &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+  </section>
+</main>
+<aside class="page-sidebar" role="complementary">
+                         
+ 
+
+
+                       
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <img src="/apero/project/sidebar-listing.png" class="db ma0">
+
+
+<div class="blog-info ph4 pt4 pb4 pb0-l">
+  
+
+  <h1 class="f3">Collections of data projects</h1>
+  <p class="f6 lh-copy measure">Some projects I have worked on to showcase skills in data analytics.</p>
+  <p class="f7 measure lh-copy i mh0-l">Written by Taufik Achmad</p>
+
+
+  <small class="db f7"><a href="/project/" class="dib fw7 ttu bt bw1 b--black-10 pt3">View all projects</a></small>
+</div>
+
+
+<div class="ad-unit pa4">
+  
+  <p class="f7 measure-narrow lh-copy mv0 pt5"><span class="b ttu db">Made by Formspree</span><span><a href="https://formspree.io" target="_blank">Formspree is a form backend, API and email  service for HTML forms</a>. It is the simplest way to collect form submissions on your static website.</span></p>
+  
+</div>
+
+  
+  
+                         
+
+
+
+<nav id="TableOfContents" class="sticky ph4 pb4 pt6" role="navigation">
+  <h2 class="mv0 f5 fw7 ttu tracked dib">On this page</h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#business-problem">Business Problem</a></li>
+        <li><a href="#analysis">Analysis</a>
+          <ul>
+            <li><a href="#data-overview">Data overview</a></li>
+            <li><a href="#activity-level-analysis">Activity level analysis</a></li>
+            <li><a href="#sleep-analysis">Sleep analysis</a></li>
+          </ul>
+        </li>
+        <li><a href="#result">Result</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</nav>
+
+</aside>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 Taufik Achmad
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="mailto:taufik.achmad.septian@gmail.com" title="envelope-square" >
+      <i class="fas fa-envelope-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/tfkachmad" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.linkedin.com/in/taufik-achmad/" title="linkedin" target="_blank" rel="me noopener">
+      <i class="fab fa-linkedin fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+    </div>
+  </nav>
+  
+</footer>
+
+      </div>
+    </body>
+</html>
