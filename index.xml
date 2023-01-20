@@ -1,54 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Taufik Achmad</title>
-    <link>https://hugo-apero.github.io/apero/</link>
-    <description>Recent content on Taufik Achmad</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 10 Dec 2022 17:36:20 +0700</lastBuildDate><atom:link href="https://hugo-apero.github.io/apero/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Bellabeat - How can a wellness technology company play it smart?</title>
-      <link>https://hugo-apero.github.io/apero/project/bellabeat/</link>
-      <pubDate>Sat, 10 Dec 2022 17:36:20 +0700</pubDate>
-      
-      <guid>https://hugo-apero.github.io/apero/project/bellabeat/</guid>
-      <description>📷 Blocks Fletcher/Unsplash
-Introduction     This project is my attempt to solve the second case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can be accessed here.
-This project will be about understanding how people use smart devices to help with their health and well-being. This knowledge then will be implemented on products of a smart devices company called Bellabeat. This company aims to manufacture smart devices to help women with their overall health and well-being.</description>
-    </item>
-    
-    <item>
-      <title>Cyclistic - Analyzing User Behavior</title>
-      <link>https://hugo-apero.github.io/apero/project/cyclistic/</link>
-      <pubDate>Mon, 31 Oct 2022 10:54:10 +0700</pubDate>
-      
-      <guid>https://hugo-apero.github.io/apero/project/cyclistic/</guid>
-      <description>📷 Clique Studio/Unsplash
-Introduction     This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not the challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself.</description>
-    </item>
-    
-    <item>
-      <title>Contributors</title>
-      <link>https://hugo-apero.github.io/apero/contributors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hugo-apero.github.io/apero/contributors/</guid>
-      <description>Thank you to all the folks who have contributed both technical and creative skills to this project:
-   Desirée De Leon 🦒 (designed 5 of the custom color themes, made illustrations for the workshop, and provided general aesthetic feedback along the way)
-   Garrick Aden-Buie 🧙‍♀️ (debugged headroom.js and lent his panelset.js code to the theme)
-   Allison Horst 🐕 (awesome illustrations of campfires, seedlings, and evergreens, as well as my R Markdown hedgehog mascot 🦔)</description>
-    </item>
-    
-    <item>
-      <title>License</title>
-      <link>https://hugo-apero.github.io/apero/license/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hugo-apero.github.io/apero/license/</guid>
-      <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.
-  </description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Taufik Achmad</title><link>https://tfkachmad.github.io/</link><description>Recent content on Taufik Achmad</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Dec 2022 17:36:20 +0700</lastBuildDate><atom:link href="https://tfkachmad.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Bellabeat - How can a wellness technology company play it smart?</title><link>https://tfkachmad.github.io/project/bellabeat/</link><pubDate>Sat, 10 Dec 2022 17:36:20 +0700</pubDate><guid>https://tfkachmad.github.io/project/bellabeat/</guid><description>📷 Blocks Fletcher/Unsplash
+Introduction This project is my attempt to solve the second case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can be accessed here.
+This project will be about understanding how people use smart devices to help with their health and well-being. This knowledge then will be implemented on products of a smart devices company called Bellabeat. This company aims to manufacture smart devices to help women with their overall health and well-being.</description></item><item><title>Cyclistic - Analyzing User Behavior</title><link>https://tfkachmad.github.io/project/cyclistic/</link><pubDate>Mon, 31 Oct 2022 10:54:10 +0700</pubDate><guid>https://tfkachmad.github.io/project/cyclistic/</guid><description>📷 Clique Studio/Unsplash
+Introduction This project is my attempt to solve the first case study from the Google Data Analytics Professional Certificate Capstone Projects on Coursera that you can access here. I really enjoy working on this project because not the challenge on this project is ranging from the size of the data provided, to the working on how to create a meaningful analysis to solve the main problem itself.</description></item><item><title>Contributors</title><link>https://tfkachmad.github.io/contributors/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tfkachmad.github.io/contributors/</guid><description>Thank you to all the folks who have contributed both technical and creative skills to this project:
+Desirée De Leon 🦒 (designed 5 of the custom color themes, made illustrations for the workshop, and provided general aesthetic feedback along the way)
+Garrick Aden-Buie 🧙‍♀️ (debugged headroom.js and lent his panelset.js code to the theme)
+Allison Horst 🐕 (awesome illustrations of campfires, seedlings, and evergreens, as well as my R Markdown hedgehog mascot 🦔)</description></item><item><title>License</title><link>https://tfkachmad.github.io/license/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://tfkachmad.github.io/license/</guid><description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description></item></channel></rss>
