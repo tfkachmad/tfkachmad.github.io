@@ -16,16 +16,17 @@ intro: |
 
   My name is Taufik and I'm currently staying in Yogyakarta, Indonesia. I'm currently pursuing my career in data analyst field and have been working on it for the last several months.
 
-  I have some knowledge and experience on several tools including, **Python**, **Tableau**, **PowerBI**, **MySQL**, and **Excel**.
+  I have some knowledge and experience with several data analytics tools including, **Python**, **Tableau**, **SQL** and **Excel**.
 
   I have taken several online courses and certifications that helps to fill my curiosity in the data field. Some of them are:
 
   - **[Google Data Analytics Professional Certificate](https://coursera.org/share/cc0262f047ea180000a1e2a91db82568)** - *Coursera*
-  - **[Data Analyst Associate Certificate](https://1drv.ms/b/s!Arq4p_WCofnpqjKgYhn66jMZXgZS?e=APZxho)** - *DataCamp*
+  - **[DataCamp Data Analyst Associate Certificate](https://www.datacamp.com/certificate/DAA0018116240848)** - *DataCamp*
+  - **[DataCamp Data Analyst Professional Certificate](https://www.datacamp.com/certificate/DA0020779543332)** - *DataCamp*
 
-  Check out the [projects](/project/) section for some projects I've worked on to showcase my skills as a data analyst.
+  Check out the [project](/project/) section for some projects I've worked on to showcase my skills as a data analyst.
 
-  That's all about me! Feel free to connect on [Linkedin](https://www.linkedin.com/in/taufik-achmad/) or send me an email directly to [taufik.achmad.septian@gmail.com](mailto:taufik.achmad.septian@gmail.com) if you have more question about me or just to chat and discuss about anything you like.
+  That's all about me! Feel free to connect on [Linkedin](https://www.linkedin.com/in/taufik-achmad/) or send me an email directly to [taufik.achmad.septian@gmail.com](mailto:taufik.achmad.septian@gmail.com) if you have other questions about me or just to chat and discuss about data related stuff.
 
 show_outro: true
 outro: |
